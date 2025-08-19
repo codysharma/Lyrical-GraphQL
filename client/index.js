@@ -8,6 +8,7 @@ import './style/style.css';
 import App from './components/app'
 import SongList from './components/SongList';
 import SongCreate from './components/SongCreate';
+import SongDetail from './components/SongDetail';
 
 const client = new ApolloClient({});
 
@@ -18,6 +19,8 @@ const Root = () => {
         <Route path="/" component={App}>
           <IndexRoute component={SongList} />
           <Route path="songs/new" component={SongCreate} />
+          <Route path="songs/:id" component={SongDetail} />
+          {/* because we did a colon, the id is passed as a props object into SongDetail component */}
         </Route>
       </Router>
     </ApolloProvider>
